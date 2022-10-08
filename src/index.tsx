@@ -3,13 +3,18 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ClerkProvider } from '@clerk/clerk-react';
+
+const frontEndApi = process.env.REACT_APP_CLERK_FRONTEND_API;
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <ClerkProvider frontendApi={frontEndApi}>
+      <App />
+    </ClerkProvider>
   </React.StrictMode>
 );
 
